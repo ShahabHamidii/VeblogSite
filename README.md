@@ -68,9 +68,3 @@ python manage.py runserver
 Then open http://127.0.0.1:8000/ to view the site. Notes:
 - Settings currently have DEBUG = True and a hard-coded SECRET_KEY in Veblog/settings.py — do not use as-is for production.
 - MEDIA and STATIC serve from MEDIA_ROOT (media/) and STATICFILES_DIRS (assets/) in development. Uploaded images (ImageField) require Pillow.
-
-## Try asking
-- Would you like me to add a requirements.txt with pinned versions (including Django, django-cleanup, django-social-share, widget-tweaks, Pillow)?
-- Do you want me to remove the committed db.sqlite3 and add a .gitignore plus instructions for local/dev vs production database setup?
-- Should I split settings into separate development/production settings and switch SECRET_KEY/DEBUG/ALLOWED_HOSTS to environment variables for safer deployment?
-
