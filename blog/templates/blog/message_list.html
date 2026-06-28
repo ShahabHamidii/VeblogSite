@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>Message Edit</h4>
+                            <h2>{{ post.title }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Banner Ends Here -->
+
+
+    <section class="blog-posts grid-system">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            </div>
+                            <div>{% for m in message_list %}
+                                <p>{{ m.title }}-{{ m.content }}- <span><a href="{% url "blog:messages_edit" m.id %}">Edit</a></span></p>
+                                <hr>
+                            {% endfor %}</div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'includes/sidebar.html' %}
+            </div>
+
+        </div>
+    </section>
+    <script>
+        function reply(commentId) {
+            document.getElementById('parent_id').value = commentId;
+            document.getElementById('body').scrollIntoView({behavior: 'smooth', block: 'start'});
+            document.getElementById('body').focus();
+        }
+    </script>
+
+{% endblock %}
